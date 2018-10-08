@@ -4,42 +4,27 @@
 bool CString::isalnum(const char * st) { return false; }
 bool CString::isalpha(const char * st) { return false; }
 char *CString::strcat(char * dest, const char * src) {
-	const size_t szDest = strlen(dest);
-	const size_t szSrc = strlen(src);
-	char *newdest = nullptr;
-	if (szDest + szSrc != 0) {
-		newdest = new char[(szDest + szSrc) * sizeof(char)];
-		strcpy(newdest, dest);
-		strcpy(newdest + szSrc, src);
-	}
-	else {
-		newdest = nullptr;
-	}
-	return dest = newdest;
+	char *it = dest;
+	for (; *it; it++);
+	for (; *it = *(src++););
+	return dest;
 
 }
 char *CString::strncat(char * dest, const char * src, size_t num) {
-	const size_t szDest = strlen(dest);
-	const size_t szSrc = std::min(strlen(src), num);
-	char *newdest = nullptr;
-	if (szDest + szSrc != 0) {
-		newdest = new char[(szDest + szSrc) * sizeof(char)];
-		strcpy(newdest, dest);
-		strncpy(newdest + szSrc, src, num);
-	}
-	else {
-		newdest = nullptr;
-	}
-	return dest = newdest;
+	char *it = dest;
+	for (; *it; it++);
+	for (; num-- && (*it = *(src++)); )
+		return dest;
 
 }
 const char *CString::strchr(const char * hay, const char c) {
-	for (; hay && *hay != c; hay++);
-	return hay;
+	for (; *hay && *hay != c; hay++);
+	return *hay == c?hay:nullptr;
 }
 int CString::strcmp(const char * lhs, const char *rhs) {
 	for (; *lhs && *rhs && *(lhs++) == *(rhs++););
-	return *lhs - *rhs;
+	auto result = *lhs - *rhs;
+	return result ? (result < 0 ? -1 : 1) : 0;
 }
 const char *CString::strpbrk(const char *str1, const char *str2) {
 	bool arr[2 << (sizeof(char) * 8)]{ false };

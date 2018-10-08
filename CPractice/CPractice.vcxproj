@@ -22,12 +22,13 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{8ED8CEE6-FC88-422D-BECD-FE259250268F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>CStringPractice</RootNamespace>
+    <RootNamespace>CPractice</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <ProjectName>CPractice</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -40,7 +41,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -139,9 +140,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CStdlib.h" />
     <ClInclude Include="CString.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CStdlib.cpp" />
     <ClCompile Include="CString.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
