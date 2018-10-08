@@ -2,6 +2,7 @@
 #include <cmath>
 #include "CStdlib.h"
 #include "cstring"
+#include <iostream>
 #if defined(_WIN32) || defined(_WIN64) 
 	#define snprintf _snprintf 
 	#define vsnprintf _vsnprintf 
@@ -13,13 +14,8 @@ double CStdlib::atof(const char *str) {
 }
 
 int CStdlib::atoi(const char *str) {
-	int value = 0;
-	for (; isspace(*str); str++); /*Skip Whitespaces*/
-	int sign = *str == '-' ? -1 : 1; /*Sign?*/
-	for (; *str && isdigit(*str); str++) {
-		value = value * 10 + (*str - '0');
-	}
-	return *str?0:value;
+	
+	return strtol(str, nullptr, 10);
 }
 
 long int CStdlib::atol(const char *str) {
@@ -60,11 +56,10 @@ double CStdlib::strtod(const char *str, char **endptr) {
 		}
 		if (*str == '.') {
 			str++;
-			int precission = 0;
-			for (precission = 0; *str && isdigit(*str); str++, precission++) {
-				fractional = fractional * base +  (*str - '0');
+			for (double p = 1./base; *str && isdigit(*str); str++, p/=base) {
+				std::cout << "p = " << p << std::endl;
+				fractional += p * (*str - '0');
 			}
-			fractional = (fractional) / pow(base, precission);
 
 		}
 		value[i] = sign * (whole + fractional);
@@ -98,7 +93,7 @@ long int CStdlib::strtol(const char *str, char **endptr, int base) {
 	if (endptr) {
 		*endptr = const_cast<char *>(str);
 	}
-	return value;
+	return sign * value;
 }
 
 unsigned long int CStdlib::strtoul(const char *str, char **endptr, int base) {
@@ -132,9 +127,26 @@ char *CStdlib::getenv(const char *name) { return nullptr; }
 
 int CStdlib::system(const char *string) { return int(); }
 
-void *CStdlib::bsearch(const void *key, const void *base, size_t nitems, size_t size, int(*compar)(const void *, const void *)) { return nullptr; }
+void *CStdlib::bsearch(const void *key, const void *base, size_t nitems, size_t size, int(*compar)(const void *, const void *)) { 
+	const char * pivot{};
+	int result{};
+	for (; size;) {
+		pivot = static_cast<const char *>(base) + (nitems / 2) * size;
+		result = compar(pivot, key);
+		if (result > 0) {
+			base = pivot + size;
+		}
+		else {
+			return static_cast<void *>(const_cast<char *>(pivot));
+		}
+		nitems /= 2;
+	}
+	return nullptr;
+}
 
-void CStdlib::qsort(void *base, size_t nitems, size_t size, int(*compar)(const void *, const void*)) {}
+void CStdlib::qsort(void *base, size_t nitems, size_t size, int(*compar)(const void *, const void*)) {
+
+}
 
 int CStdlib::abs(int x) {
 	return x < 0 ? -x : x;

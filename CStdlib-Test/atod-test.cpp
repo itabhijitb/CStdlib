@@ -1,5 +1,5 @@
 #include "CppUnitTest.h"
-#include "../CPractice/CStdlib.h"
+#include "../CStdlib/CStdlib.h"
 #include <cstring>
 #include <limits>
 #include <string>
@@ -59,8 +59,13 @@ namespace CStdlibTest
 		}
 		TEST_METHOD(TestMaxFloat)
 		{
-			Assert::AreEqual(atof(std::to_string(std::numeric_limits<float>::max()).c_str()), 
-				             cstdlib.atof(std::to_string(std::numeric_limits<float>::max()).c_str()));
+			Assert::AreEqual(atof(std::to_string(std::numeric_limits<double>::max()).c_str()), 
+				             cstdlib.atof(std::to_string(std::numeric_limits<double>::max()).c_str()));
+		}
+		TEST_METHOD(TestMinFloat)
+		{
+			Assert::AreEqual(atof(std::to_string(std::numeric_limits<double>::min()).c_str()),
+				cstdlib.atof(std::to_string(std::numeric_limits<double>::min()).c_str()));
 		}
 		TEST_METHOD(TestHexadecimal)
 		{

@@ -22,10 +22,10 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{1C9CD622-DB24-459A-A350-8BA1AE45BCC3}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>CPractice-Test</RootNamespace>
+    <RootNamespace>CStdlib-Test</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
     <ProjectSubType>NativeUnitTestProject</ProjectSubType>
-    <ProjectName>CPractice-Test</ProjectName>
+    <ProjectName>CStdlib-Test</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -78,12 +78,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>C:\Users\abhijbha\Documents\Visual Studio 2017\Projects\CPractice\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\abhijbha\source\repos\CStdlib\Debug;$(LibraryPath)</LibraryPath>
     <SourcePath>$(VC_SourcePath);</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>C:\Users\abhijbha\Documents\Visual Studio 2017\Projects\CPractice\x64\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\abhijbha\source\repos\CStdlib\CStdlib-Test\x64\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -103,7 +103,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>"CPractice.lib" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>"CStdlib.lib" %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -114,12 +114,12 @@
       <AdditionalIncludeDirectories>$(VCInstallDir)UnitTest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <UseFullPaths>true</UseFullPaths>
-      <AdditionalOptions>"CPractice.lib" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>"CStdlib.lib" %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>"CPractice.lib" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>"CStdlib.lib" %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -160,10 +160,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="atod-test.cpp" />
+    <ClCompile Include="atoi-test.cpp" />
     <ClCompile Include="strcat-test.cpp" />
     <ClCompile Include="strchr-test.cpp" />
     <ClCompile Include="strcmp-test.cpp" />
     <ClCompile Include="strlen-test.cpp" />
+    <ClCompile Include="strncat-test.cpp" />
+    <ClCompile Include="strspn-test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

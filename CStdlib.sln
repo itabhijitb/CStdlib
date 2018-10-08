@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPractice", "CPractice\CPractice.vcxproj", "{8ED8CEE6-FC88-422D-BECD-FE259250268F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CStdlib", "CStdlib\CStdlib.vcxproj", "{8ED8CEE6-FC88-422D-BECD-FE259250268F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPractice-Test", "CPractice-Test\CPractice-Test.vcxproj", "{1C9CD622-DB24-459A-A350-8BA1AE45BCC3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CStdlib-Test", "CStdlib-Test\CStdlib-Test.vcxproj", "{1C9CD622-DB24-459A-A350-8BA1AE45BCC3}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8ED8CEE6-FC88-422D-BECD-FE259250268F} = {8ED8CEE6-FC88-422D-BECD-FE259250268F}
 	EndProjectSection

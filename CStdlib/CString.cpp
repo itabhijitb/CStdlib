@@ -13,8 +13,8 @@ char *CString::strcat(char * dest, const char * src) {
 char *CString::strncat(char * dest, const char * src, size_t num) {
 	char *it = dest;
 	for (; *it; it++);
-	for (; num-- && (*it = *(src++)); )
-		return dest;
+	for (; num-- && (*it = *(src++)); );
+	return dest;
 
 }
 const char *CString::strchr(const char * hay, const char c) {
@@ -46,7 +46,7 @@ size_t CString::strcspn(const char *str1, const char *str2) {
 	bool arr[2 << (sizeof(char) * 8)]{ false };
 	size_t size = 0;
 	for (; *str2; arr[*str2] == false, str2++);
-	for (; *str2 && arr[*str2]; str2++, size++);
+	for (; *str1 && arr[*str1]; str1++, size++);
 	return size;
 }
 size_t CString::strlen(const char *str) {
@@ -66,8 +66,8 @@ const char *CString::strrchr(const char *str, int c) {
 size_t CString::strspn(const char *str1, const char *str2) {
 	bool arr[2 << (sizeof(char) * 8)]{ false};
 	size_t size = 0;
-	for (; *str2; arr[*str2], str2++);
-	for (; *str2 && arr[*str2]; str2++, size++);
+	for (; *str2; arr[*str2]=true, str2++);
+	for (; *str1 && arr[*str1]; str1++, size++);
 	return size;
 }
 char *CString::strstr(const char *hay, const char *needle) {
