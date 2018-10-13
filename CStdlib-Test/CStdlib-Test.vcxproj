@@ -166,6 +166,7 @@
     <ClCompile Include="strcmp-test.cpp" />
     <ClCompile Include="strlen-test.cpp" />
     <ClCompile Include="strncat-test.cpp" />
+    <ClCompile Include="strpbrk-test.cpp" />
     <ClCompile Include="strspn-test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

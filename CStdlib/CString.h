@@ -3,8 +3,6 @@
 #include<memory>
 class CString {
 public:
-	bool isalnum(const char * st);
-	bool isalpha(const char * st);
 	char * strcat(char * dest, const char * src);
 	char * strncat(char * dest, const char * src, size_t num);
 	const char * strchr(const char * hay, const char c);

@@ -146,17 +146,30 @@ void *CStdlib::bsearch(const void *key, const void *base, size_t nitems, size_t 
 
 void CStdlib::qsort(void *base, size_t nitems, size_t size, int(*compar)(const void *, const void*)) {
 
+
 }
 
 int CStdlib::abs(int x) {
 	return x < 0 ? -x : x;
 }
 
-div_t CStdlib::div(int numer, int denom) { return div_t{}; }
+div_t CStdlib::div(int numer, int denom) { 
+	div_t result{};
+	result.quot = numer / denom;
+	result.rem = numer - result.quot * denom;
+	return result;
+}
 
-long int CStdlib::labs(long int x) { return long{}; }
+long int CStdlib::labs(long int x) { 
+	return x < 0 ? -x : x;
+}
 
-ldiv_t CStdlib::ldiv(long int numer, long int denom) { return ldiv_t{}; }
+ldiv_t CStdlib::ldiv(long int numer, long int denom) { 
+	ldiv_t result{};
+	result.quot = numer / denom;
+	result.rem = numer - result.quot * denom;
+	return result;
+}
 
 int CStdlib::rand(void) { return int{}; }
 

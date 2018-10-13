@@ -1,8 +1,7 @@
 #include "CString.h"
 #include <algorithm>
 #include<stdlib.h> 
-bool CString::isalnum(const char * st) { return false; }
-bool CString::isalpha(const char * st) { return false; }
+
 char *CString::strcat(char * dest, const char * src) {
 	char *it = dest;
 	for (; *it; it++);
@@ -29,8 +28,8 @@ int CString::strcmp(const char * lhs, const char *rhs) {
 const char *CString::strpbrk(const char *str1, const char *str2) {
 	bool arr[2 << (sizeof(char) * 8)]{ false };
 	for (; *str2; arr[*str2] = true, str2++);
-	for (; *str2 && arr[*str2] == false; str2++);
-	return str2;
+	for (; *str1 && arr[*str1] == false; str1++);
+	return *str1?str1:nullptr;
 }
 char *CString::strcpy(char *dest, const char *src) {
 	for (char *it = dest; *(it++) = *(src++););
